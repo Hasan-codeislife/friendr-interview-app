@@ -23,13 +23,14 @@ class RootViewController: UIViewController {
     lazy var searchTextField: BindableTextField = {
         let field = BindableTextField()
         field.placeholder = "Search"
+        field.autocapitalizationType = .none
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
     
     lazy var occurrencesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -62,7 +63,11 @@ class RootViewController: UIViewController {
     }
     
     private func bindOutput() {
-        
+        rootViewModel?.count.bind(listner: { [unowned self] text in
+            DispatchQueue.main.async {
+                occurrencesLabel.text = text
+            }
+        })
     }
     
     private func setupLayoutConstraints() {

@@ -9,6 +9,7 @@ import Foundation
 
 protocol RootViewModelProtocol: AnyObject {
     // MARK:- Output
+    var count: Reactive<String?> { get set }
     
     // MARK:- Input
     func newSearchQuery(_ string: String)
@@ -17,12 +18,18 @@ protocol RootViewModelProtocol: AnyObject {
 
 class RootViewModel: RootViewModelProtocol {
     
+    var count: Reactive<String?> = Reactive(nil)
+    
     private var rootService: RootServiceProtocol?
     private var searchQuery = String()
-    private var htmlConvertedText = String()
+    private var htmlConvertedWords = [String]()
     
     init(service: RootServiceProtocol) {
         rootService = service
+    }
+    
+    func newSearchQuery(_ string: String) {
+        searchQuery = string
     }
     
     func didTapFindButton() {
@@ -30,7 +37,7 @@ class RootViewModel: RootViewModelProtocol {
     }
     
     private func checkForData() {
-        guard htmlConvertedText.isEmpty,
+        guard htmlConvertedWords.isEmpty,
               !searchQuery.isEmpty
         else {
             findOccurrences()
@@ -41,9 +48,8 @@ class RootViewModel: RootViewModelProtocol {
             switch result {
             case .success(let response):
                 if let string = String(data: response, encoding: .utf8) {
-                    self?.htmlConvertedText = string.htmlToString
-                    print(self?.htmlConvertedText ?? "")
-                    self?.findOccurrences()
+                    let str = string.htmlToString
+                    self?.splitAndCleanString(str: str)
                 }
             case .failure(let error):
                 // add toast functioanlity here
@@ -52,8 +58,9 @@ class RootViewModel: RootViewModelProtocol {
         })
     }
     
-    func newSearchQuery(_ string: String) {
-        searchQuery = string
+    private func splitAndCleanString(str: String) {
+        htmlConvertedWords = str.components(separatedBy: CharacterSet(charactersIn: "\n "))
+        findOccurrences()
     }
     
     private func findOccurrences() {
@@ -62,11 +69,12 @@ class RootViewModel: RootViewModelProtocol {
             return
         }
         
-        let tokens =  htmlConvertedText.components(separatedBy: searchQuery)
-        setNewCount(with: tokens.count - 1)
+        let count =  htmlConvertedWords.filter({ $0 == searchQuery}).count
+        setNewCount(with: count)
     }
     
     private func setNewCount(with value: Int) {
         print(value)
+        count.value = "\(value)"
     }
 }
