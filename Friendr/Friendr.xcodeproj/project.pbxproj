@@ -16,6 +16,9 @@
 		455A0144273AA47000D279D0 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A0143273AA47000D279D0 /* APIRoute.swift */; };
 		455A0146273AA48300D279D0 /* RootEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A0145273AA48300D279D0 /* RootEndPoint.swift */; };
 		455A0148273AA5F400D279D0 /* RootService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A0147273AA5F400D279D0 /* RootService.swift */; };
+		455A014B273AAEFF00D279D0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A014A273AAEFF00D279D0 /* String.swift */; };
+		455A014F273AB0DD00D279D0 /* BindableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A014E273AB0DD00D279D0 /* BindableTextField.swift */; };
+		455A0151273AB0F000D279D0 /* BindableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A0150273AB0F000D279D0 /* BindableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		455A0143273AA47000D279D0 /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
 		455A0145273AA48300D279D0 /* RootEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEndPoint.swift; sourceTree = "<group>"; };
 		455A0147273AA5F400D279D0 /* RootService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootService.swift; sourceTree = "<group>"; };
+		455A014A273AAEFF00D279D0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		455A014E273AB0DD00D279D0 /* BindableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableTextField.swift; sourceTree = "<group>"; };
+		455A0150273AB0F000D279D0 /* BindableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 		455A012627398B9800D279D0 /* Friendr */ = {
 			isa = PBXGroup;
 			children = (
+				455A014C273AB0C000D279D0 /* Helpers */,
+				455A0149273AAEF400D279D0 /* Extensions */,
 				455A013F273AA36400D279D0 /* Networking */,
 				455A013B273A941400D279D0 /* Modules */,
 				455A012727398B9800D279D0 /* AppDelegate.swift */,
@@ -106,6 +114,31 @@
 				455A0145273AA48300D279D0 /* RootEndPoint.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		455A0149273AAEF400D279D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				455A014A273AAEFF00D279D0 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		455A014C273AB0C000D279D0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				455A014D273AB0CA00D279D0 /* Reactive Components */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		455A014D273AB0CA00D279D0 /* Reactive Components */ = {
+			isa = PBXGroup;
+			children = (
+				455A014E273AB0DD00D279D0 /* BindableTextField.swift */,
+				455A0150273AB0F000D279D0 /* BindableButton.swift */,
+			);
+			path = "Reactive Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +212,11 @@
 				455A012C27398B9800D279D0 /* RootViewController.swift in Sources */,
 				455A0148273AA5F400D279D0 /* RootService.swift in Sources */,
 				455A012827398B9800D279D0 /* AppDelegate.swift in Sources */,
+				455A0151273AB0F000D279D0 /* BindableButton.swift in Sources */,
+				455A014B273AAEFF00D279D0 /* String.swift in Sources */,
 				455A013D273A95F400D279D0 /* RootViewModel.swift in Sources */,
 				455A0146273AA48300D279D0 /* RootEndPoint.swift in Sources */,
+				455A014F273AB0DD00D279D0 /* BindableTextField.swift in Sources */,
 				455A0141273AA37300D279D0 /* APIClient.swift in Sources */,
 				455A0144273AA47000D279D0 /* APIRoute.swift in Sources */,
 				455A012A27398B9800D279D0 /* SceneDelegate.swift in Sources */,
